@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/ConcurrentStudy/ConcurrentStudy.iml" filepath="$PROJECT_DIR$/ConcurrentStudy/ConcurrentStudy.iml" />
       <module fileurl="file://$PROJECT_DIR$/JavaConcurrentStudy.iml" filepath="$PROJECT_DIR$/JavaConcurrentStudy.iml" />
     </modules>
   </component>
