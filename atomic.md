@@ -3,15 +3,20 @@ java5之后的java.util.concurrent包是世界级并发大师Doug Lea的作品�
 2. 一些同步子，包括Lock，CountDownLatch，Semaphore，FutureTask等，这些都是基于AbstractQueuedSynchronizer类；
 3. 关于线程执行的Executors类等；
 4. 一些并发的集合类，比如ConcurrentHashMap，ConcurrentLinkedQueue，CopyOnWriteArrayList等。
+
 今天我们主要介绍atomic包下相关内容。
 
 #CAS
+
 atomic包下的类主要基于现代主流 CPU 都支持的一种指令，Compare and Swap（CAS），这个指令能为多线程编程带来更好的性能。引用《Java Concurrency in Practice》里的一段描述：
 >在这里，CAS 指的是现代 CPU 广泛支持的一种对内存中的共享数据进行操作的一种特殊指令。这个指令会对内存中的共享数据做原子的读写操作。简单介绍一下这个指令的操作过程：首先，CPU 会将内存中将要被更改的数据与期望的值做比较。然后，当这两个值相等时，CPU 才会将内存中的数值替换为新的值。否则便不做操作。最后，CPU 会将旧的数值返回。这一系列的操作是原子的。它们虽然看似复杂，但却是 Java 5 并发机制优于原有锁机制的根本。简单来说，CAS 的含义是“我认为原有的值应该是什么，如果是，则将原有的值更新为新值，否则不做修改，并告诉我原来的值是多少”。
+
 #AtomicInteger
+
 ```
 private volatile int value;
 ```
+
 AtomicInteger里面只包含一个字段，用来记录当前值，定义为volatile是为了满足**可见性**。
 ```
   // setup to use Unsafe.compareAndSwapInt for updates
