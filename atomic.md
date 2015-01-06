@@ -127,6 +127,7 @@ CAS操作容易导致ABA问题,也就是在做a++之间，a可能被多个线程
 atomic包下的类比如AtomicInteger实现原子性的方法主要是依靠现代主流 CPU 都支持的CAS指令，它是通过Unsafe类的native方法调用的。一般而言性能比用锁同步要好，但是都已经很好了，一般而言不会遇到性能问题，关键还是看它的语义是否满足使用要求，以及是否可以让代码更清新。
 
 Refers
+
 1. [http://my.oschina.net/lifany/blog/133513](http://my.oschina.net/lifany/blog/133513)
 2. [http://zl198751.iteye.com/blog/1848575](http://zl198751.iteye.com/blog/1848575)
 3. [http://blog.csdn.net/aesop_wubo/article/details/7537960](http://blog.csdn.net/aesop_wubo/article/details/7537960)
